@@ -63,5 +63,17 @@ public class UserRestClient {
                 .all();
     }
 
+    public ValidatableResponse readUser(String id) {
+        Map<String, String> body = new HashMap<>();
+        body.put("id", id);
+        return given()
+                .spec(reqSpec)
+                .body(body)
+                .post("Read")
+                .then()
+                .log()
+                .all();
+    }
+
 
 }
