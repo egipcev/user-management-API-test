@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class BasicTest {
 
-    public static final String TOKEN = "MWNhZGRhMTEtMzAwMS00ZjMwLWFlNjctZWRhMGMxNDA3ZTgx";
+    public static final String TOKEN = "NTA4Nzc2ODgtZGIyZi00Y2UzLWJkZTMtNDQ4Mzg5ZjhjYWUy";
     public static final String BASE_URI = "https://api.m3o.com/v1/user/";
 
 

@@ -35,11 +35,12 @@ public class UserRestClient {
     }
 
     public ValidatableResponse createUser(User user) {
-        Map<String, String> body = new HashMap<>();
+        Map<String, Object> body = new HashMap<>();
         body.put("email", user.getEmail());
         body.put("id", user.getId());
         body.put("password", user.getPassword());
         body.put("username", user.getUsername());
+        body.put("profile", user.getProfile());
         return given()
                 .spec(reqSpec)
                 .body(body)
