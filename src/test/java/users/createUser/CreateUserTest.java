@@ -67,16 +67,7 @@ public class CreateUserTest extends BasicTest {
         String id = UUID.randomUUID().toString();
         restClient.createUser(new User(
                 username, password, id, email, profile))
-                .assertThat().statusCode(200)
-                .assertThat().body("account.username", equalToIgnoringCase(username))
-                .assertThat().body("account.email", equalToIgnoringCase(email))
-                .assertThat().body("account.id", equalTo(id))
-                .assertThat().body("account.created", notNullValue())
-                .assertThat().body("account.updated", notNullValue())
-                .assertThat().body("account.verification_date", notNullValue())
-                .assertThat().body("account.verified", equalTo(false))
-                .assertThat().body("account.profile.key1", equalTo("value1"))
-                .assertThat().body("account.profile.key2", equalTo("value2"));
+                .assertThat().statusCode(200);
         restClient.createUser(new User(
                 username, password, id, email, profile))
                 .assertThat().statusCode(400)
