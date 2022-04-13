@@ -13,8 +13,6 @@ import static org.hamcrest.Matchers.*;
 
 public class CreateUserTest extends BasicTest {
 
-    private UserRestClient restClient = UserRestClient.getInstance();
-
     @Test
     public void testCreateUserMandatoryFields() {
         String username = "user-" + getRandomString();

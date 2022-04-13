@@ -51,5 +51,17 @@ public class UserRestClient {
 
     }
 
+    public ValidatableResponse deleteUser(String id) {
+        Map<String, String> body = new HashMap<>();
+        body.put("id", id);
+        return given()
+                .spec(reqSpec)
+                .body(body)
+                .post("Delete")
+                .then()
+                .log()
+                .all();
+    }
+
 
 }
