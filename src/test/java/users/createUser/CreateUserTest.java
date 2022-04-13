@@ -1,5 +1,6 @@
 package users.createUser;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import users.BasicTest;
 import users.User;
@@ -13,7 +14,10 @@ import static org.hamcrest.Matchers.*;
 
 public class CreateUserTest extends BasicTest {
 
+    private final UserRestClient restClient =  UserRestClient.getInstance();
+
     @Test
+    @DisplayName("create user with mandatory fields only")
     public void testCreateUserMandatoryFields() {
         String username = "user-" + getRandomString();
         String password = "password";
@@ -32,6 +36,7 @@ public class CreateUserTest extends BasicTest {
     }
 
     @Test
+    @DisplayName("create user with all fields")
     public void testCreateUserAllFields() {
         String username = "user-" + getRandomString();
         String password = "password";
@@ -55,6 +60,7 @@ public class CreateUserTest extends BasicTest {
     }
 
     @Test
+    @DisplayName("Try to create already existing user")
     public void testCreateExistingUserAllFieldsNegative() {
         String username = "user-" + getRandomString();
         String password = "password";

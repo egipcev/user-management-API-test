@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import users.BasicTest;
 import users.User;
+import users.UserRestClient;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -12,6 +13,7 @@ import static org.hamcrest.Matchers.equalToIgnoringCase;
 public class ReadUserTest extends BasicTest {
 
     private static JsonPath response;
+    private static UserRestClient restClient = UserRestClient.getInstance();
 
     @BeforeAll
     public static void createUser() {

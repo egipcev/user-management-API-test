@@ -4,10 +4,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import users.BasicTest;
 import users.User;
+import users.UserRestClient;
 
 public class DeleteUserTest extends BasicTest {
 
     private static String id;
+    private static UserRestClient restClient = UserRestClient.getInstance();
 
     @BeforeAll
     public static void createUser() {

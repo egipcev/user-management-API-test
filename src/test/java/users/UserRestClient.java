@@ -1,5 +1,7 @@
 package users;
 
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
@@ -15,13 +17,14 @@ import static users.BasicTest.TOKEN;
 
 public class UserRestClient {
 
-    private RequestSpecification reqSpec;
+    private final RequestSpecification reqSpec;
     private static UserRestClient restClient;
 
-    public UserRestClient() {
-        reqSpec = new RequestSpecBuilder()
+    private UserRestClient() {
+        this.reqSpec = new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
                 .setContentType(ContentType.JSON)
+                .addFilter(new AllureRestAssured())
                 .addHeader("Authorization", "Bearer " + TOKEN)
                 .log(LogDetail.ALL)
                 .build();
@@ -34,6 +37,7 @@ public class UserRestClient {
         return restClient;
     }
 
+    @Step
     public ValidatableResponse createUser(User user) {
         Map<String, Object> body = new HashMap<>();
         body.put("email", user.getEmail());
@@ -51,6 +55,7 @@ public class UserRestClient {
 
     }
 
+    @Step
     public ValidatableResponse deleteUser(String id) {
         Map<String, String> body = new HashMap<>();
         body.put("id", id);
@@ -63,6 +68,7 @@ public class UserRestClient {
                 .all();
     }
 
+    @Step
     public ValidatableResponse readUser(String id) {
         Map<String, String> body = new HashMap<>();
         body.put("id", id);
