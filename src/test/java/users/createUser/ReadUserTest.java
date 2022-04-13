@@ -25,7 +25,7 @@ public class ReadUserTest extends BasicTest {
     }
 
     @Test
-    public void readUser() {
+    public void testReadUser() {
         restClient.readUser(response.getString("account.id"))
                 .assertThat().statusCode(200)
                 .assertThat().body("account.username", equalToIgnoringCase(response.getString("account.username")))
@@ -35,5 +35,11 @@ public class ReadUserTest extends BasicTest {
                 .assertThat().body("account.updated", equalTo(response.getString("account.created")))
                 .assertThat().body("account.verified", equalTo(response.getBoolean("account.verified")))
                 .assertThat().body("account.verification_date", equalTo(response.getString("account.verification_date")));
+    }
+
+    @Test
+    public void testReadNotExistingUser() {
+        restClient.readUser("0")
+                .assertThat().statusCode(400);
     }
 }
