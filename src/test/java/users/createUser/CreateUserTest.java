@@ -3,8 +3,8 @@ package users.createUser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import users.BasicTest;
-import users.User;
-import users.UserRestClient;
+import dto.User;
+import rest.UserRestClient;
 
 import java.util.HashMap;
 import java.util.Map;

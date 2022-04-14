@@ -3,8 +3,8 @@ package users.createUser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import users.BasicTest;
-import users.User;
-import users.UserRestClient;
+import dto.User;
+import rest.UserRestClient;
 
 public class DeleteUserTest extends BasicTest {
 

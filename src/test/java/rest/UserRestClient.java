@@ -1,4 +1,4 @@
-package users;
+package rest;
 
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
@@ -7,6 +7,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import dto.User;
 
 import java.util.HashMap;
 import java.util.Map;

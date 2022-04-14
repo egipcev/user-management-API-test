@@ -4,8 +4,8 @@ import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import users.BasicTest;
-import users.User;
-import users.UserRestClient;
+import dto.User;
+import rest.UserRestClient;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
